@@ -1,0 +1,1 @@
+window.onload=alert("i am from external js")
