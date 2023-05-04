@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Arrays</h2>
+
+<p>The Array.map() method creates a new array from the results of calling a function for every element.</p>
+    <br>
+<pre>
+    var numbers = [4, 9, 16, 25];
+    document.getElementById("demo").innerHTML = numbers.map(Math.sqrt);
+</pre>
+<p id="demo"></p>
+<br>
+<pre>
+
+    var numbers = [65, 44, 12, 4];
+    var newArr = numbers.map(myFunction)
+    
+    document.getElementById("sample").innerHTML = newArr;
+    
+    
+    function myFunction(num) 
+    {
+      return num * 10;
+    }
+    
+</pre>
+<p id="sample"> </p>
+
+<pre>
+
+    let myarray=[{ a:"apple"},{ b:"boll"},{ c:"cat"},{d:"dog"}]
+myarray.map((obj)=>
+{
+    console.log(obj)
+})
+
+</pre>
+
+<script>
+var numbers = [4, 9, 16, 25];
+document.getElementById("demo").innerHTML = numbers.map(Math.sqrt);
+
+var numbers = [65, 44, 12, 4];
+var newArr = numbers.map(myFunction)
+
+document.getElementById("sample").innerHTML = newArr;
+
+
+function myFunction(num)
+ {
+  return num * 10;
+}
+
+let myarray=[{ a:"apple"},{ b:"boll"},{ c:"cat"},{d:"dog"}]
+myarray.map((obj)=>
+{
+    console.log(obj)
+})
+
+
+</script>
+
+</body>
+</html>
+
+
+

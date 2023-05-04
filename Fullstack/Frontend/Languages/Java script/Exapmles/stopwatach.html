@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+        <div class="container  p-3  rounded" style="width: 500px; background-color: teal;">
+            <table class="table table-borderless">
+                <tr class="text-light">
+                    <td colspan="4" style="text-align: center;">HOURS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINUTES &nbsp;&nbsp;&nbsp; SECONDS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MILLI.SEC </td>
+                    
+                </tr> 
+                <tr>
+                    <td colspan="4"><div id="display" class="text-light bg-dark rounded p-2" 
+                        style="width: 100%;font-size:50px; height:100px;text-align:center">00 : 00 : 00 . 000 </div></td>
+                </tr>
+                <tr style="height: 40px;"></tr>
+                <tr>
+                    <td ><button onclick="start_clock()" style="width: 100%" class="btn btn-info"> start</button></td>
+                    <td ><button onclick="lap()" style="width: 100%;" class="btn btn-light"> lap</button></td>
+                    <td><button onclick="reset()" style="width: 100%;" class="btn btn btn-warning"> reset</button></td>
+                    <td ><button onclick="stop_clock()" style="width: 100%;" class="btn btn-danger"> stop</button></td>
+                </tr>
+        
+            </table> 
+        </div>
+        
+        <div id="lap_div"></div>
+    
+
+ <script>
+        let stopwatch;
+        const start_clock = () => {
+            let display = document.getElementById("display")
+            let hours = 0;
+            let minutes = 0;
+            let seconds = 0;
+            let msec = 0;
+
+            stopwatch = setInterval(() => { //stopwatch
+                msec += 5;
+                if (msec === 1000) {
+                    msec = 0;
+                    seconds++;
+                }
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                }
+                if (minutes === 60) {
+                    minutes = 0;
+                    hours++;
+                }
+                
+                
+                display.textContent= (String(hours).length==1 ?  "0"+hours : hours) +' : '+
+                                    (String(minutes).length==1 ? "0"+minutes : minutes) +' : '+
+                                    (String(seconds).length==1 ? "0"+seconds : seconds) +' . '+
+                                    (String(msec).length==1 ? "00"+msec : (String(msec).length==2 ? "0"+msec : msec) ) 
+            }, 1);
+        };
+
+
+        const stop_clock = () => {
+            clearInterval(stopwatch);
+        };
+        const lap = () => {
+            
+            let display = document.getElementById('display')
+
+            let lap_p = document.createElement('p')
+            lap_p.textContent = display.textContent
+            document.getElementById('lap_div').appendChild(lap_p)
+        }
+        const reset = () => {
+            
+            document.getElementById('display').textContent = "00 : 00 : 00 . 000"
+            document.getElementById('lap_div').innerHTML = " "
+        }
+
+    </script>
+
+</body>
+
+</html>
