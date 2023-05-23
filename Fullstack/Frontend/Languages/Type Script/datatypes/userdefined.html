@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>USER - DEFINED DATA TYPES</h2>
+    <ul>
+        <li>Classes</li>
+       
+    </ul>
+    <h1>
+    <u> Open console from developer tools to see the output of source </u>
+    </h1>
+    <script>
+        class Breakfast {
+            
+            constructor() {
+                this.water = "mineral water"
+                this.dosa = "onion dosa"
+                this.status=false
+            }
+            completed() {
+                this.status=true
+            }
+        }
+
+        let plate = new Breakfast()
+        console.log(plate)
+        console.log(plate.status)
+        plate.completed()
+        console.log(plate.status)
+
+    </script>
+</body>
+
+</html>
