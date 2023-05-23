@@ -1,0 +1,64 @@
+
+<!-- //run on  the live server -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <h4>You Seeing a Notification When This Page Is Loaded</h4>
+    <h4>Now click this  below button,to seen stream Notifications </h4>
+    <button onclick ="streamNotifications()">STREAM NOTIFICATIONS</button>
+    <script>
+        if('Notification' in window && Notification.permission==='granted')
+        {
+            showNotification();
+        }
+        
+        else if('Notification' in window && Notification.permission!=='denied')
+        {
+            Notification.requestPermission().then(function(permission)
+            {
+                if(permission==='granted')
+                {
+                    showNotification();
+                }
+            });
+        }
+        function showNotification()
+        {
+            var notification =new Notification('hello!',
+            {
+                body:'sample notification came when page loaded'
+            });
+        }
+        function streamNotifications()
+        {
+            let n_Notifications =10
+            var index = 0;
+              
+            let stream = setInterval(()=>
+            {
+                if (index < n_Notifications)
+                {
+                    var notification = new Notification(`Notification ${index+1}`,
+                    {
+                        body:`hey this is a sample notification ${index+1}`
+                    });
+                    index++;
+                }
+                else
+                {
+                    clearInterval(stream)
+                }
+            },500);
+        }
+        
+
+    </script>
+</body>
+</html>

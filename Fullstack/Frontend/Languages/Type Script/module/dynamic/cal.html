@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body> 
-<ol>
-    
-    <a href="./clippath.html"> <li>CLIP-PATH</li></a><br>
-    <a href="./shape.html"> <li>SHAPES</li></a><br>
-</ol> 
+<body>
+    <button onclick="cal()">clic me</button>
+    <script>
+        function cal(){
+            console.log()
+            import('./cal.js').then((val)=>{
+              console.log(val.add(4,6))
+            })
 
+        }
+    </script>
 </body>
 </html>
