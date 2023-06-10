@@ -7,16 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    local storage
+    
     <script>
-       let user={id:1,name:"lokesh",token:"hjsdhj"}
+       let user={id:1,name:"asha",token:"hjsdhj"}
         localStorage.setItem("user",JSON.stringify(user))
     </script>
     <script>
         let userinfo=localStorage.getItem("user")
         console.log(userinfo)
-        .clear()
-        localStorage.removeItem("user")
+        //localStorage.removeItem("user")
     </script>
+    <script>
+        sessionStorage.setItem('usersession',"asha user data")
+        sessionStorage.getItem("user data")
+    </script>
+    <h1>Open application from developer tools to see local storage values and session storage values</h1>
 </body>
 </html>
