@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Service Worker Example</title>
+</head>
+<body>
+  <h3>Service Worker Example</h3>
+  <h1>  Service worker is used to prepare offline pges for 
+    website so for that we register
+local client the browser to store the website info
+  </h1>
+  <h2>Open source from developer tools to see the code</h2>
+  <script>
+    // Register the service worker
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(registration => {
+        console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+        console.error('Service Worker registration failed:', error);
+        });
+    }
+  </script>
+</body>
+</html>
